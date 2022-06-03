@@ -1,0 +1,103 @@
+<div style="clear: both;">
+
+this page is a demo of stuff you can do with lightncandy/hbs + tachyons + slime utils (maybe some htmx? or simple js too?)
+
+
+<div style="float: right;">
+  {{#each slime_links}}
+  <a href="{{.}}" class="dib mb3" target="_blank">{{.}}</a><br />
+  {{/each}}
+</div>
+
+<h1>home page</h1>
+<h2>{{locals.site_title}} ({{locals.site_code}}) - https://{{locals.site_domain}}</h2>
+<b>myloop</b><br />
+{{#myloop foo}}Hello, {{.}}!<br />{{/myloop}}
+
+<br />
+-- -- 
+{{foo}} == {{bar}}? {{isequal foo bar}}<br /><br />
+
+<a href="/404test">404 test</a><br /><br />
+
+<a href="/twig/">twig demo</a> (same as this page but with twig??)<br /><br />
+
+<a href="https://textart.sh/topic/slime">Slime Text Art</a>
+
+<a href="https://www.reddit.com/r/ASCII/comments/n118ir/slimes/">ascii slimes</a>
+
+</div>
+
+
+test cookie: {{test_cookie}}<br /><br />
+slug_demo: {{slug_demo}}<br /><br />
+client_ip: {{client_ip}}<br /><br />
+locals.year: {{locals.year}}<br /><br />
+
+authed?:
+{{#if locals.auth}}
+✅
+{{else}}
+❌
+{{/if}}
+<br /><br />
+
+
+i am <a href="/json/alexander">json response object</a><br /><br />
+
+<hr />
+
+<b>iterating array (from mysql)</b><br />
+{{#each developments}}
+<a href="https://{{domain}}">{{title}}</a> ({{tagline}})<br />
+{{/each}}
+
+<hr />
+<hr />
+
+<b>iterating results from http request (api)</b><br />
+{{#each api_response}}
+-- {{title}} ({{body}})<br />
+{{/each}}
+
+<hr />
+<hr />
+{{#each hello}}
+<a href="/hello/{{name}}">hello, {{name}}</a><br />
+{{/each}}
+
+
+<hr />
+
+
+<Br /><br />
+¯\_(ツ)_/¯
+<br /><br />
+🤔
+
+<hr />
+
+<h2>variables</h2>
+
+1: {{first}}<Br />
+2: {{second}}<Br />
+
+
+
+
+
+
+
+
+
+<hr />
+
+
+<h2>include</h2>
+<b>partial w/ var:</b><br />
+{{> _partials/partial-variable}}
+
+<br /><br />
+
+<b>partial w/ horse:</b><br />
+{{> _partials/horse}}

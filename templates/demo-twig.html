@@ -1,0 +1,84 @@
+{% extends "_layouts/base-twig.html" %}
+
+{% block body %}
+<h1>home page</h1>
+
+
+
+test cookie: {{test_cookie}}<br /><br />
+slug_demo: {{slug_demo}}<br /><br />
+client_ip: {{client_ip}}<br /><br />
+locals.year: {{locals.year}}<br /><br />
+
+authed?: 
+{% if locals.auth %}
+✅
+{% else %}
+❌
+{% endif %}
+
+<br /><br />
+
+
+i am <a href="/json/alexander">json response object</a><br /><br />
+
+<hr />
+
+<b>iterating array (from mysql)</b><br />
+{% for this in developments %}
+<a href="https://{{this.domain}}">{{this.title}}</a> ({{this.tagline}})<br />
+{% endfor %}
+
+<hr />
+
+<b>iterating results from http request (api)</b><br />
+{% for this in api_response %}
+<a href="https://{{this.domain}}">{{this.title}}</a> ({{this.tagline}})<br />
+{% endfor %}
+
+
+<hr />
+
+{% for this in hello %}
+<a href="/hello/{{this.name}}">hello, {{this.name}}</a><br />
+{% endfor %}
+
+
+<hr />
+
+
+<Br /><br />
+¯\_(ツ)_/¯
+<br /><br />
+🤔
+
+<hr />
+
+<h2>variables</h2>
+
+1: {{first}}<Br />
+2: {{second}}<Br />
+
+
+
+
+
+
+
+
+<hr />
+
+<h2>include</h2>
+<b>partial</b><br />
+{% include '_partials/partial.html' %}
+
+<br /><br />
+<b>partial w/ var:</b><br />
+{% include '_partials/partial-variable.html' with { 'title': 'Sign in with your membership details to attend this event' } %}
+
+<br /><br />
+
+<b>partial w/ horse:</b><br />
+{% include '_partials/horse.html' %}
+
+{% endblock %}

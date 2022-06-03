@@ -1,0 +1,10 @@
+{
+  "require": {
+    "slim/slim": "4.*",
+    "slim/psr7": "^1.5",
+    "zordius/lightncandy": "dev-master",
+    "hxgf/slime-utilities": "^1.1"
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true
+}
