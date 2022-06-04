@@ -1,6 +1,6 @@
 <div style="clear: both;">
 
-this page is a demo of stuff you can do with lightncandy/hbs + tachyons + slime utils (maybe some htmx? or simple js too?)
+  
 
 
 <div style="float: right;">
@@ -8,6 +8,51 @@ this page is a demo of stuff you can do with lightncandy/hbs + tachyons + slime 
   <a href="{{.}}" class="dib mb3" target="_blank">{{.}}</a><br />
   {{/each}}
 </div>
+
+
+this page is a demo of stuff you can do with lightncandy/hbs + tachyons + slime utils (maybe some htmx? or simple js
+too?)
+
+
+<br /><br />
+
+
+??<br />
+{{#xif "1 == 1"}}
+yes :)
+{{else}}
+noo
+{{/xif}}
+
+
+<br /><br />
+??<br />
+{{#is "paella" "==" "paella"}}
+yes :)
+{{else}}
+noo
+{{/is}}
+<br />
+
+??<br />
+
+{{#is hbar_variable_1 "in" hbar_variable_2}}
+yes :)
+{{else}}
+noo
+{{/is}}
+<br />
+
+??<br />
+{{#is hbar_variable_1 "typeof" hbar_variable_2}}
+yes :)
+{{else}}
+noo
+{{/is}}
+
+<br />
+<br /><br />
+
 
 <h1>home page</h1>
 <h2>{{locals.site_title}} ({{locals.site_code}}) - https://{{locals.site_domain}}</h2>

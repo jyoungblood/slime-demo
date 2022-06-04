@@ -29,6 +29,8 @@ toc of all the pages and what they do
 
 ---
 
+check out the [live demo](https://slime.hxgf.io) if you want to see this codebase in action
+
 ?? example usage from all the slime-utilities repos
   or just links for where to find usage?
 
@@ -47,7 +49,7 @@ how to use locals variables
 how do modify slime components (index, settings, htaccess)
 
 
-hbs basics (variables, loops, partials)
+hbs basics (variables, logic, loops, helpers, partials, raw output)
 how to do custom hbs helpers (you can put them anywhere, we put them in demo.php)
 
 

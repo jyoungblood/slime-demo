@@ -10,10 +10,98 @@
 
   // single custom helper
   // https://zordius.github.io/HandlebarsCookbook/0021-customhelper.html
-  $GLOBALS['hbars_helpers']['isequal'] = function ($arg1, $arg2) {
+  $GLOBALS['hbars_helpers']['qual'] = function ($arg1, $arg2) {
     return ($arg1 === $arg2) ? 'Yes' : 'No';
   };
 
+
+
+// fixit get this to work
+
+// similar problem here - https://github.com/zordius/lightncandy/issues/287
+// custom if here - https://github.com/zordius/lightncandy/issues/213 ***
+
+  // https://zordius.github.io/HandlebarsCookbook/
+  // https://zordius.github.io/HandlebarsCookbook/9002-helperoptions.html
+
+// ?? https://www.google.com/search?q=lightncandy+custom+block+helper+xif+logic&oq=lightncandy+custom+block+helper+xif+logic&aqs=chrome..69i57j33i10i160.10726j0j1&sourceid=chrome&ie=UTF-8
+
+  // may need to add flags in render/compile function? - /Users/jy/Desktop/projects/slime-demo/vendor/hxgf/slime-utilities/src/render.php
+
+  $GLOBALS['hbars_helpers']['is'] = function ($l, $operator, $r) {
+
+    if ($operator == '=='){
+      $condition = ($l == $r);
+    }
+    if ($operator == '==='){
+      $condition = ($l === $r);
+    }
+    if ($operator == 'not' || $operator == '!='){
+      $condition = ($l != $r);
+    }	
+    if ($operator == '<'){
+      $condition = ($l < $r);
+    }
+    if ($operator == '>'){
+      $condition = ($l > $r);
+    }
+    if ($operator == '<='){
+      $condition = ($l <= $r);
+    }
+    if ($operator == '>='){
+      $condition = ($l >= $r);
+    }
+    if ($operator == 'in'){
+      if (gettype($r) == 'array'){
+        $condition = (in_array($l, $r));
+      }else{
+        // expects a csv string
+        $condition = (in_array($l, str_getcsv($r)));
+      }
+    }
+    if ($operator == 'typeof'){
+      $condition = (gettype($l) == gettype($r));
+    }
+    // print_r([$l, $operator, $r]);
+    // echo $condition;
+    // return $condition;
+
+    // $exp = explode('{{else}}', $categories);
+
+    if ($condition){
+      return $options['fn']();
+    }else{
+      return $options['inverse']();
+    }
+
+    // echo $options['hash'];
+
+    // return $options['fn']($condition);
+
+  };
+
+
+
+
+  $GLOBALS['hbars_helpers']['xif'] = function ($expression, $options) {
+
+    // echo $expression;
+
+		if (eval($expression)) { // => Unfortunately, this line will generate an error :-(
+			return $options['fn']();
+		} else {
+			return $options['inverse']();
+		}
+
+    print_r($options);
+  };
+
+
+
+
+
+
+  
 
   // custom block helper
   // https://zordius.github.io/HandlebarsCookbook/0022-blockhelper.html
