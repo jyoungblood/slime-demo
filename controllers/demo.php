@@ -28,6 +28,9 @@
 
   // may need to add flags in render/compile function? - /Users/jy/Desktop/projects/slime-demo/vendor/hxgf/slime-utilities/src/render.php
 
+// can we use subexpression instead? - https://zordius.github.io/HandlebarsCookbook/0026-subexpression.html
+  // w/ flag FLAG_ADVARNAME
+  
   $GLOBALS['hbars_helpers']['is'] = function ($l, $operator, $r) {
 
     if ($operator == '=='){
