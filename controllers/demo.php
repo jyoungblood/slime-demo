@@ -21,6 +21,7 @@
 // similar problem here - https://github.com/zordius/lightncandy/issues/287
 // custom if here - https://github.com/zordius/lightncandy/issues/213 ***
 
+// ?? other helpers / options for doing more advanced comparison logic
   // https://zordius.github.io/HandlebarsCookbook/
   // https://zordius.github.io/HandlebarsCookbook/9002-helperoptions.html
 
@@ -30,7 +31,7 @@
 
 // can we use subexpression instead? - https://zordius.github.io/HandlebarsCookbook/0026-subexpression.html
   // w/ flag FLAG_ADVARNAME
-  
+
   $GLOBALS['hbars_helpers']['is'] = function ($l, $operator, $r) {
 
     if ($operator == '=='){
