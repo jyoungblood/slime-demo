@@ -18,7 +18,7 @@ too?)
 <br /><br />
 
 
-??<br />
+?? (xif)<br />
 {{#xif "1 == 1"}}
 yes :)
 {{else}}
@@ -27,24 +27,23 @@ noo
 
 
 <br /><br />
-??<br />
+?? (is paella)<br />
 {{#is "paella" "==" "paella"}}
 yes :)
 {{else}}
 noo
 {{/is}}
-<br />
+<br /><br />
 
-??<br />
-
+?? (is)<br />
 {{#is hbar_variable_1 "in" hbar_variable_2}}
 yes :)
 {{else}}
 noo
 {{/is}}
-<br />
+<br /><br />
 
-??<br />
+?? (is)<br />
 {{#is hbar_variable_1 "typeof" hbar_variable_2}}
 yes :)
 {{else}}
@@ -54,6 +53,13 @@ noo
 <br />
 <br /><br />
 
+?? (unless)<br />
+{{#unless slime_links}}
+no slime_links
+{{else}}
+yes slime_links
+{{/unless}}
+<br /><br />
 
 <h1>home page</h1>
 <h2>{{locals.site_title}} ({{locals.site_code}}) - https://{{locals.site_domain}}</h2>

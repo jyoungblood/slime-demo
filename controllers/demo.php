@@ -32,7 +32,12 @@
 // can we use subexpression instead? - https://zordius.github.io/HandlebarsCookbook/0026-subexpression.html
   // w/ flag FLAG_ADVARNAME
 
-  $GLOBALS['hbars_helpers']['is'] = function ($l, $operator, $r) {
+
+
+
+  // IT WORKS NOW !!
+  // WOW
+  $GLOBALS['hbars_helpers']['is'] = function ($l, $operator, $r, $options) {
 
     if ($operator == '=='){
       $condition = ($l == $r);
@@ -82,7 +87,7 @@
 
     // return $options['fn']($condition);
 
-  };
+  };      
 
 
 
@@ -128,6 +133,11 @@
 
 
 
+  $app->get('/header-demo[/]', function ($req, $res, $args) {
+
+    return $res->withHeader('Location', '/')->withStatus(302);
+
+  });
 
   $app->get('/demo[/]', function ($req, $res, $args) {
 
