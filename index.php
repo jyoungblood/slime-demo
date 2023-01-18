@@ -1,7 +1,21 @@
 <?php
 
+/*
+
+  ███████╗ ██╗      ██╗ ███╗   ███╗ ███████╗
+  ██╔════╝ ██║      ██║ ████╗ ████║ ██╔════╝
+  ███████╗ ██║      ██║ ██╔████╔██║ █████╗  
+  ╚════██║ ██║      ██║ ██║╚██╔╝██║ ██╔══╝  
+  ███████║ ███████╗ ██║ ██║ ╚═╝ ██║ ███████╗
+  ╚══════╝ ╚══════╝ ╚═╝ ╚═╝     ╚═╝ ╚══════╝
+                                        
+  1.2.0 - https://github.com/hxgf/slime
+
+*/
+
+
 use Slim\Factory\AppFactory;
-use Slime\db;
+use VPHP\db;
 use Slime\render;
 
 require __DIR__ . '/vendor/autoload.php';
@@ -11,7 +25,7 @@ $app = AppFactory::create();
 
 $app->addBodyParsingMiddleware();
 
-$GLOBALS['database'] = db::init(@$GLOBALS['settings']['database']);
+$GLOBALS['database'] = isset($GLOBALS['settings']['database']) ? db::init($GLOBALS['settings']['database']) : false;
 
 $errorMiddleware = $app->addErrorMiddleware(false, false, false);
 

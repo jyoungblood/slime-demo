@@ -1,10 +1,25 @@
 {
+	"name": "hxgf/slime",
+  "homepage": "https://github.com/hxgf/slime",
+	"description": "Starter kit for building web apps with Slim 4",
+	"type": "project",
+  "license": "MIT",
+	"authors": [
+		{
+      "name": "Jonathan Youngblood",
+      "email": "jy@hxgf.io",
+      "homepage": "https://hxgf.io"
+		}
+	],
+	"keywords": ["boilerplate", "starter", "slim4", "slim-framework", "lightncandy", "handlebars"],
   "require": {
     "slim/slim": "4.*",
     "slim/psr7": "^1.5",
     "zordius/lightncandy": "dev-master",
-    "hxgf/slime-utilities": "^1.1"
-  },
-  "minimum-stability": "dev",
-  "prefer-stable": true
+    "hxgf/dbkit": "^1.2",
+    "hxgf/cookie": "^1.1",
+    "hxgf/http-request": "^1.2",
+    "hxgf/x-utilities": "^1.2",
+    "hxgf/slime-render": "^1.2"
+  }
 }

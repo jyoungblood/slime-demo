@@ -1,75 +1,79 @@
-# SLIME DEMO
+# S L I M E
 
-## quick start example with hbs, tachyons, & slime-utilities
+### Starter kit for building web applications with Slim PHP Framework
 
-everything you can do w/ slime + slime utilities, examples for how to do common things
-  here is a very quick and easy workflow to help you get things done ... fast and in a way that (probably) won't blow up in your face at some point in the future
+*(it's Slim ... enhanced)*
 
-if you like this building things w/ this workflow, check out darkwave (it's a cms & copypasta components/patterns for quickly building out all kinds of functionality)
+[⭐ Demo & Docs ⭐](https://slime.hxgf.io/)
 
-focus on getting something up and running quickly that you can deploy with little effort and then leave it running and forget about it :)
+## What's included?
+- [Slim v4](https://www.slimframework.com/) (w/ [Slim PSR-7](https://github.com/slimphp/Slim-Psr7))
+- Handlebars templating - [Lightncandy](https://github.com/zordius/lightnCandy)    
 
-there's an example w/ twig, just know you gotta install twig + render to use it
+
+- Helpful abstraction libraries:
+
+  - View rendering - [Slime Render](https://github.com/hxgf/slime-render)
+  - Database handlers - [DB Kit](https://github.com/hxgf/dbkit)
+  - Cookie handlers - [Cookie](https://github.com/hxgf/cookie)
+  - Simple HTTP client - [HTTP Request](https://github.com/hxgf/http-request) 
+  - Misc utility functions - [X-Utilities](https://github.com/hxgf/x-utilities)
+    
+- Minimal front-end boilerplate & utility library options - [scratch](https://github.com/hxgf/scratch)
+    
+- Simple organization - folders for css, js, images, templates, and controllers
+
+- Blank CSS and JS placeholder files
+
+- [settings.php](https://github.com/hxgf/slime/blob/master/settings.php) - helpful basic variables and settings
+
+- [index.php](https://github.com/hxgf/slime/blob/master/index.php) - initialized Slim application w/ middleware, db connection, and default 404 configuration
+
+- [.htaccess](https://github.com/hxgf/slime/blob/master/.htaccess) - routes all non-file urls to index, forces https, and uses gzip for static assets (if available)
+- [.gitignore](https://github.com/hxgf/slime/blob/master/.gitignore) - ignores `/vendor`, `.vscode`, and `.DS_Store`
 
 
-if you wanna run this demo on your server, copy the files (git clone or npx degit) and then do composer install
 
-take a look at the [slime](https://github.com/hxgf/slime) requirements and set up
+
+
+
+## Requirements
+- Apache
+- PHP >= 7.4
+- PDO-compatible database (if using [DB handlers](https://github.com/hxgf/dbkit))
+
+
+
+
+
+## Installation
+Easy install with composer:
+```
+composer create-project hxgf/slime new-project-name
+```
+
+
+
+
+## Usage
+See [controllers/index.php](https://github.com/hxgf/slime/blob/master/controllers/index.php) for an example of routing and template rendering.
+
+See [templates/index.html](https://github.com/hxgf/slime/blob/master/templates/index.html) and [templates/_layouts/base.html](https://github.com/hxgf/slime/blob/master/templates/_layouts/base.html) for examples using handlebars and layouts.
+
+Helpful resources:
+- [Handlebars Cookbook](https://zordius.github.io/HandlebarsCookbook/)
+- [Slim v4 Routing](https://www.slimframework.com/docs/v4/objects/routing.html)
+- [DB Kit CRUD operations](https://github.com/hxgf/dbkit)
+- [Tachyons Docs](https://tachyons.io/docs/)
+
+Check out [slime-demo](https://github.com/hxgf/dbkit) to see examples of some cool stuff you can do with Slime!
 
 ---
 
-toc of all the pages and what they do
-  index
-  demo
-    base
-    twig
-  hello
-  json
-  404
+Slime is heavily inspired by [STEREO](https://stereotk.com/), an older toolkit I've assembled and maintained, which has helped me to be very productive and make a decent living over the years. 
 
----
-
-check out the [live demo](https://slime.hxgf.io) if you want to see this codebase in action
-
-?? example usage from all the slime-utilities repos
-  or just links for where to find usage?
-
-page features
-- base - sticky footer w/ tachyons
-- 404 vertical center (inline css)
-
----
-
-how to set up db
-
-how to set up mailgun? (how to use email_send w/ mailgun)
-
-how to use locals variables
-
-how do modify slime components (index, settings, htaccess)
-
-
-hbs basics (variables, logic, loops, helpers, partials, raw output)
-how to do custom hbs helpers (you can put them anywhere, we put them in demo.php)
-
-
-usage/workflow
-how to set up routes
-db - how to do queries and crud and stuff
-how to use other utilities (cookie, request, email, etc)
+I hope these tools and the workflows they enable can help some of you as much as they've helped me : )
 
 
 
-how to do common stuff
-  set a custom 404
-  use layout or a standalone page (index uses standalone, demo uses layout)
 
-
-
-links to learn more about
-tachyons
-lightncandy
-  exisitng helpers/utilities
-  writing helpers
-    https://zordius.github.io/HandlebarsCookbook/0021-customhelper.html
-    https://zordius.github.io/HandlebarsCookbook/0022-blockhelper.html

@@ -1,10 +1,13 @@
 <?php
 
+// SLIME-TEST components at end
+
+
   use Slime\render;
-  use Slime\http;
-  use Slime\cookie;
-  use Slime\db;
-  use Slime\x;
+  use VPHP\http;
+  use VPHP\cookie;
+  use VPHP\db;
+  use VPHP\x;
 
 
 
@@ -202,7 +205,7 @@
 
     return render::hbs($req, $res, [
       'template' => 'demo',
-      'layout' => '_layouts/base',
+      'layout' => '_layouts/base-tachyons',
       'title' => 'SLIME HBS Demo - ' . $GLOBALS['site_title'],
       'data' => [
         'name' => 'rayne - the vampire who kills vampires',
@@ -242,7 +245,7 @@
     
       return render::hbs($req, $res, [
         'template' => 'hello',
-        'layout' => '_layouts/base',
+        'layout' => '_layouts/base-tachyons',
         'title' => 'Hello, ' . $args['name'] . '! - ' . $GLOBALS['site_title'],
         'data' => [
           'name' => $args['name'],
@@ -299,6 +302,270 @@
     ]);
 
   });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  // for slime-test
+// $GLOBALS['settings']['database'] = [
+//   'host' => 'localhost',
+//   'name' => 'purhost_slime_demo',
+//   'user' => 'purhost_slime_demo',
+//   'password' => '0000w...'
+// ];
+
+
+// from slime-test
+
+
+// $home = function ($req, $res, $args) {
+
+// // DONE
+
+//   // return render::redirect($req, $res, [
+//   //   'location' => 'https://google.com',
+//   //   'status' => 301
+//   // ]);
+
+
+// // DONE
+
+// // $articles = db::get("articles", "_id IS NOT NULL");
+// // print_r($articles);
+
+
+
+// // DONE
+// // x::console_log(['$articles' => 'what'], [
+// //   'style' => [
+// //     'font-size' => '16px',
+// //     'background' => 'blue',
+// //     'color' => 'yellow',
+// //     'padding' => '2.5rem',
+// //     'line-height' => '200%',
+// //     'custom' => 'font-style: italic'
+// //   ]
+// //   // 'format' => false
+// // ]);
+
+
+// // DONE
+// // x::file_write('what something', 'data.txt', [
+// //   // 'mode' => 'w+',
+// //   'line_beginning' => "\n- ",
+// //   'line_ending' => "",
+// //   // 'line_ending' => "\n\n\n",
+// // ]);
+
+
+// // DONE
+// // x::file_write([
+// //   'an_array' => 'is great',
+// //   'ok' => [
+// //     'this is' => 'awesome'
+// //   ]
+// // ], 'data.txt');
+
+
+
+// // DONE
+// // $var = [
+// //   'what' => 'idk'
+// // ];
+// // x::dd($var, [
+// //   'format' => false
+// // ]);
+
+
+
+
+// // DONE
+// // x::error_log('ERROR: YOU ARE A PIECE OF SHIT');
+
+// // x::error_log(['whatever' => 'jennifer']);
+
+
+
+
+
+
+
+// // DONE
+
+// // $url = "https://reqbin.com/echo";
+
+// // $curl = curl_init($url);
+// // curl_setopt($curl, CURLOPT_URL, $url);
+// // curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+
+// // $headers = array(
+// //    "Accept: */*",
+// // );
+// // curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
+// // //for debug only!
+// // curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, false);
+// // curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
+
+// // $resp = curl_exec($curl);
+// // curl_close($curl);
+// // var_dump($resp);
+
+
+
+
+
+
+
+
+// // DONE
+
+
+// // $curl = curl_init();
+
+// // curl_setopt_array($curl, array(
+// //   CURLOPT_URL => "http://picbear.com/tag/ok",
+// //   CURLOPT_RETURNTRANSFER => true,
+// //   CURLOPT_ENCODING => "",
+// //   CURLOPT_MAXREDIRS => 10,
+// //   CURLOPT_TIMEOUT => 30,
+// //   CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+// //   CURLOPT_CUSTOMREQUEST => "GET",
+// //   CURLOPT_HTTPHEADER => array(
+// //     "cache-control: no-cache",
+// //     "user-agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36" // Here we add the header
+// //   ),
+
+// // ));
+
+// // $response = curl_exec($curl);
+// // $err = curl_error($curl);
+
+// // curl_close($curl);
+
+// // if ($err) {
+// //   echo "cURL Error #:" . $err;
+// // } else {
+// //   echo $response;
+// // }
+
+
+// // echo "<hr />";
+
+
+
+
+
+
+// // DONE
+
+// // $url = 'https://httpbin.org/post';
+// // // $url = 'https://httpbin.org/get';
+// // // $url = 'https://reqbin.com/echo/get/xml';
+// // // $url = 'https://oceancompaniesok.com';
+// // // $url = 'https://slime.hxgf.io/';
+// // // $url = 'https://httpbin.org/post';
+// // // $url = 'https://jsonplaceholder.typicode.com/posts';
+
+// //     $data_slideshow = http::request($url, [
+// //       'method' => 'POST',
+// //       'json_decode' => true,
+// //       // 'debug' => true,
+// //       'data' => [
+// //         'what' => 'idk',
+// //         'really' => 'yes',
+// //         'ok' => 'wow'
+// //       ],
+// //           'headers' => [
+// //             // 'Content-length' => 0,
+// //             // 'Content-Type' => 'application/json',
+// //             // 'Accept' => '*/*'
+// //             // 'User-Agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36'
+// //           ]
+// //     ]);
+// //     echo "<pre class='f6'>";
+// //     print_r($data_slideshow);
+// //     echo "</pre>";
+
+
+
+
+// // DONE
+
+
+//   // cookie::set('what', 'idk', [
+//   //   // 'expires' => time() + 86400
+//   //   'expires' => time() + 86400,
+//   //   // 'path' => '/bob/',
+//   //   // 'domain' => 'bpb.purhost.net',
+//   //   'secure' => true,
+//   //   'httponly' => true,
+//   //   'samesite' => 'Strict',
+//   //   // 'samesite' => 'lax',
+//   //   // 'samesite' => 'None',
+//   // ]);
+
+
+
+
+//   return render::hbs($req, $res, [
+//     'layout' => '_layouts/base',
+//     'template' => 'index',
+//     'title' => $GLOBALS['site_title'],
+//   ]);
+
+// };
+
+
+
+
+
+// $app->get('/', $home);
+// $app->get('/bob[/]', $home);
+
+
+
+
 
 
 
