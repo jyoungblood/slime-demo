@@ -568,6 +568,159 @@
 
 
 
+  $app->get('/html-demo', function ($req, $res, $args) {
+
+    $html = '<h2>hey whats up</h2>';
+
+    return render::html($req, $res, $html);
+  });
+
+
+
+
+
+
+
+
+
+  $app->get('/resend-demo', function ($req, $res, $args) {
+
+
+	function email_resend($input){
+
+    $resend_api_key = '';
+
+    $message_html = false;
+		if (isset($input['html'])){
+      $message_html = $input['message'];					
+			$message_text = strip_tags(x::br2nl($message_html));	
+		}
+		// if (isset($GLOBALS['settings']['mailgun']['api_key'])){
+
+
+      $message = array(
+				'from' => $input['from'],
+				'to' => $input['to'],
+				'subject' => $input['subject']
+			);
+			// if (isset($input['cc'])){
+			// 	$message['cc'] = $input['cc'];
+			// }	
+			// if (isset($input['reply_to'])){
+			// 	$message['h:Reply-To'] = $input['reply_to'];
+			// }
+			// if (isset($input['bcc'])){
+			// 	$message['bcc'] = $input['bcc'];
+			// }	
+			if ($message_html){
+				$message['html'] = $message_html;
+				$message['text'] = $message_text;
+			}else{
+				$message['text'] = $input['message'];
+			}
+			// if (isset($input['preview'])){
+			// 	echo $message;
+			// }
+			// if (isset($input['debug'])){
+			// 	echo '<pre class="bg-black white">';
+			// 	print_r($input);
+			// 	echo "<hr />";
+			// 	echo $headers;
+			// 	echo "<hr />";
+			// 	echo $message;
+			// 	echo '</pre>';
+			// }
+			if (isset($input['to']) && !isset($input['preview']) && !isset($input['debug'])){
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, "https://api.resend.com/email");
+        // curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
+        // curl_setopt($ch, CURLOPT_USERPWD, "api:".$GLOBALS['settings']['mailgun']['api_key']."");
+        $headers = [];
+        $headers[] = 'Authorization: Bearer ' . $resend_api_key;
+        $headers[] = 'Content-Type: application/json';
+        
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 10);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+        curl_setopt($ch, CURLOPT_POST, true); 
+        curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($message));
+        $result = curl_exec($ch);
+        curl_close($ch);
+        return $result;
+    //   }else{
+		// 		return false;
+    //   }
+		// }
+		// else{
+		// 	if ($message_html){
+		// 		$boundary = uniqid('st');
+		// 		$headers .= "MIME-Version: 1.0\r\n" . "Content-type: multipart/alternative; boundary=" . $boundary . "; charset=utf-8\r\n";
+		// 		$message = $message_text;
+		// 		$message .= "\r\n\r\n--" . $boundary . "\r\n";
+		// 		$message .= "Content-type: text/plain;charset=utf-8\r\n\r\n" . $message_text;
+		// 		$message .= "\r\n\r\n--" . $boundary . "\r\n";
+		// 		$message .= "Content-type: text/html;charset=utf-8\r\n\r\n" . $message_html;
+		// 		$message .= "\r\n\r\n--" . $boundary . "--";
+		// 	}else{
+		// 		$message = $input['message'];
+		// 	}
+		// 	if (isset($input['from'])){
+		// 		$headers 	.= "From: " . $input['from'] . "\r\n";	
+		// 	}		
+		// 	if (isset($input['cc'])){
+		// 		$headers 	.= "Cc: " . $input['cc'] . "\r\n";	
+		// 	}		
+		// 	if (isset($input['bcc'])){
+		// 		$headers 	.= "Bcc: " . $input['bcc'] . "\r\n";	
+		// 	}		
+		// 	if (isset($input['reply_to'])){
+		// 		$headers 	.= "Reply-To: " . $input['reply_to'] . "\r\n";	
+		// 	}
+		// 	if (isset($input['preview'])){
+		// 		echo $message;
+		// 	}
+		// 	if (isset($input['debug'])){
+		// 		echo '<pre class="bg-black white">';
+		// 		print_r($input);
+		// 		echo "<hr />";
+		// 		echo $headers;
+		// 		echo "<hr />";
+		// 		echo $message;
+		// 		echo '</pre>';
+		// 	}
+		// 	if (isset($input['to']) && !isset($input['preview']) && !isset($input['debug'])){
+		// 		mail($input['to'], $input['subject'], $message, $headers);
+		// 		return true;
+		// 	}else{
+		// 		return false;
+		// 	}
+		}
+	}
+
+
+
+    $resend = email_resend(array(
+      'to' => 'jonathan.youngblood@gmail.com',
+    	'from' => 'ME <notifications@resend.purhost.net>',
+    	'subject' => 'Hella World',
+      'html' => true,
+      'message' => '<img src="https://i.pinimg.com/736x/69/07/4b/69074bc0871256c45ac834cb15f8df8e.jpg" /> <br /><br /><h1>sweet little baby</h1>',
+
+    ));
+
+    x::console_log($resend);
+
+    return render::json($req, $res, [
+      'email' => 'resemt',
+      'data' => $GLOBALS['hello']
+    ]);
+
+
+  });
+
 
 
 
