@@ -261,9 +261,7 @@
 
   $app->get('/json-response[/]', function ($req, $res, $args) {
 
-    return render::json($req, $res, [
-      'data' => $GLOBALS['hello']
-    ]);
+    return render::json($req, $res, $GLOBALS['hello']);
 
   });
 
@@ -279,29 +277,29 @@
 
 
 
-
+// WE DONT DO THIS ANYMORE
 
   // if you want to use twig, make sure slim twig view is installed:
   // composer require slim/twig-view
 
-  $app->get('/twig', function ($req, $res, $args) {
+  // $app->get('/twig', function ($req, $res, $args) {
 
-    return render::twig($req, $res, [
-      'template' => 'demo-twig',
-      'layout' => '_layouts/base-twig',
-      'title' => 'SLIME Twig Demo - ' . $GLOBALS['site_title'],
-      'data' => [
-        'first' => 123,
-        'second' => 456,
-        'hello' => $GLOBALS['hello'],
-        'api_response' => http::json('/json-reponse', ['method' => 'GET']),
-        'test_cookie' => cookie::get('test-cookie'),
-        'slug_demo' => x::url_slug('This is A Log string!!!'),
-        'client_ip' => x::client_ip()
-      ],
-    ]);
+  //   return render::twig($req, $res, [
+  //     'template' => 'demo-twig',
+  //     'layout' => '_layouts/base-twig',
+  //     'title' => 'SLIME Twig Demo - ' . $GLOBALS['site_title'],
+  //     'data' => [
+  //       'first' => 123,
+  //       'second' => 456,
+  //       'hello' => $GLOBALS['hello'],
+  //       'api_response' => http::json('/json-reponse', ['method' => 'GET']),
+  //       'test_cookie' => cookie::get('test-cookie'),
+  //       'slug_demo' => x::url_slug('This is A Log string!!!'),
+  //       'client_ip' => x::client_ip()
+  //     ],
+  //   ]);
 
-  });
+  // });
 
 
 
@@ -363,10 +361,7 @@
 
 // // DONE
 
-//   // return render::redirect($req, $res, [
-//   //   'location' => 'https://google.com',
-//   //   'status' => 301
-//   // ]);
+//  // return render::redirect($req, $res, 'https://google.com');
 
 
 // // DONE
